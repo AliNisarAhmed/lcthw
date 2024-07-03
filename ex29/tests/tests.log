@@ -1,0 +1,101 @@
+==17791== Memcheck, a memory error detector
+==17791== Copyright (C) 2002-2024, and GNU GPL'd, by Julian Seward et al.
+==17791== Using Valgrind-3.23.0 and LibVEX; rerun with -h for copyright info
+==17791== Command: ./tests/ex29_tests
+==17791== 
+[ERROR] (tests/ex29_tests.c: main:9: errno: None) USAGE: ex29 libex29.so function data
+==17791== 
+==17791== HEAP SUMMARY:
+==17791==     in use at exit: 0 bytes in 0 blocks
+==17791==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
+==17791== 
+==17791== All heap blocks were freed -- no leaks are possible
+==17791== 
+==17791== For lists of detected and suppressed errors, rerun with: -s
+==17791== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==17981== Memcheck, a memory error detector
+==17981== Copyright (C) 2002-2024, and GNU GPL'd, by Julian Seward et al.
+==17981== Using Valgrind-3.23.0 and LibVEX; rerun with -h for copyright info
+==17981== Command: ./tests/ex29_tests ../build/lib29.so uppercase hello
+==17981== 
+[ERROR] (tests/ex29_tests.c: main:16: errno: No such file or directory) Failed to open library ../build/lib29.so: ../build/lib29.so: cannot open shared object file: No such file or directory
+==17981== 
+==17981== HEAP SUMMARY:
+==17981==     in use at exit: 0 bytes in 0 blocks
+==17981==   total heap usage: 5 allocs, 5 frees, 268 bytes allocated
+==17981== 
+==17981== All heap blocks were freed -- no leaks are possible
+==17981== 
+==17981== For lists of detected and suppressed errors, rerun with: -s
+==17981== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==18079== Memcheck, a memory error detector
+==18079== Copyright (C) 2002-2024, and GNU GPL'd, by Julian Seward et al.
+==18079== Using Valgrind-3.23.0 and LibVEX; rerun with -h for copyright info
+==18079== Command: ./tests/ex29_tests ../build/libex29.so uppercase hello
+==18079== 
+[ERROR] (tests/ex29_tests.c: main:16: errno: No such file or directory) Failed to open library ../build/libex29.so: ../build/libex29.so: cannot open shared object file: No such file or directory
+==18079== 
+==18079== HEAP SUMMARY:
+==18079==     in use at exit: 0 bytes in 0 blocks
+==18079==   total heap usage: 5 allocs, 5 frees, 274 bytes allocated
+==18079== 
+==18079== All heap blocks were freed -- no leaks are possible
+==18079== 
+==18079== For lists of detected and suppressed errors, rerun with: -s
+==18079== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==18435== Memcheck, a memory error detector
+==18435== Copyright (C) 2002-2024, and GNU GPL'd, by Julian Seward et al.
+==18435== Using Valgrind-3.23.0 and LibVEX; rerun with -h for copyright info
+==18435== Command: ./tests/ex29_tests ./build/libex29.so uppercase hello
+==18435== 
+==18435== 
+==18435== HEAP SUMMARY:
+==18435==     in use at exit: 0 bytes in 0 blocks
+==18435==   total heap usage: 8 allocs, 8 frees, 4,889 bytes allocated
+==18435== 
+==18435== All heap blocks were freed -- no leaks are possible
+==18435== 
+==18435== For lists of detected and suppressed errors, rerun with: -s
+==18435== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==19750== Memcheck, a memory error detector
+==19750== Copyright (C) 2002-2024, and GNU GPL'd, by Julian Seward et al.
+==19750== Using Valgrind-3.23.0 and LibVEX; rerun with -h for copyright info
+==19750== Command: ./tests/ex29_tests
+==19750== 
+DEBUG tests/ex29_tests.c:47: ----- RUNNING: ./tests/ex29_tests
+DEBUG tests/ex29_tests.c:41: 
+----- test_functions
+[ERROR] (tests/ex29_tests.c: check_function:13: errno: None) Did not find print_a_message function in library build/libex29.so: ./tests/ex29_tests: undefined symbol: print_a_message
+[ERROR] (tests/ex29_tests.c: test_functions:24: errno: None) print_a_message failed
+==19750== 
+==19750== HEAP SUMMARY:
+==19750==     in use at exit: 0 bytes in 0 blocks
+==19750==   total heap usage: 5 allocs, 5 frees, 1,255 bytes allocated
+==19750== 
+==19750== All heap blocks were freed -- no leaks are possible
+==19750== 
+==19750== For lists of detected and suppressed errors, rerun with: -s
+==19750== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==20179== Memcheck, a memory error detector
+==20179== Copyright (C) 2002-2024, and GNU GPL'd, by Julian Seward et al.
+==20179== Using Valgrind-3.23.0 and LibVEX; rerun with -h for copyright info
+==20179== Command: ./tests/ex29_tests
+==20179== 
+DEBUG tests/ex29_tests.c:63: ----- RUNNING: ./tests/ex29_tests
+DEBUG tests/ex29_tests.c:55: 
+----- test_dlopen
+DEBUG tests/ex29_tests.c:56: 
+----- test_functions
+DEBUG tests/ex29_tests.c:57: 
+----- test_failures
+DEBUG tests/ex29_tests.c:58: 
+----- test_dlclose
+==20179== 
+==20179== HEAP SUMMARY:
+==20179==     in use at exit: 0 bytes in 0 blocks
+==20179==   total heap usage: 8 allocs, 8 frees, 4,883 bytes allocated
+==20179== 
+==20179== All heap blocks were freed -- no leaks are possible
+==20179== 
+==20179== For lists of detected and suppressed errors, rerun with: -s
+==20179== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
