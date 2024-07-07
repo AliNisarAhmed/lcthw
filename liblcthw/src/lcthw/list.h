@@ -23,6 +23,8 @@ void List_destroy(List *list);
 void List_clear(List *list);
 void List_clear_destroy(List *list);
 
+ListNode *ListNode_create(ListNode *next, ListNode *prev, void* value);
+
 #define List_size(A) ((A)->size)
 #define List_head(A) ((A)->head != NULL ? (A)->head->value : NULL)
 #define List_tail(A) ((A)->tail != NULL ? (A)->tail->value : NULL)

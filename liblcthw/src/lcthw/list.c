@@ -9,6 +9,18 @@ List *List_create() {
   return list;
 }
 
+ListNode *ListNode_create(ListNode *next, ListNode *prev, void *val) {
+  ListNode *result = calloc(1, sizeof(ListNode));
+  check_mem(result);
+  result->next = next;
+  result->prev = prev;
+  result->value = val;
+  return result;
+
+error:
+  return NULL;
+}
+
 void List_destroy(List *list) {
   LIST_FOREACH(list, head, next, cur) {
     if (cur->prev) {
@@ -30,8 +42,9 @@ void List_clear_destroy(List *list) {
 }
 
 void List_pushRight(List *list, void *value) {
-  ListNode *node = calloc(1, sizeof(ListNode));
-  check_mem(node);
+  // ListNode *node = calloc(1, sizeof(ListNode));
+  // check_mem(node);
+  ListNode *node = ListNode_create(NULL, NULL, NULL);
 
   node->value = value;
 
