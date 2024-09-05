@@ -5,6 +5,7 @@
 #include "darray.h"
 #include "dbg.h"
 #include <stdint.h>
+#include <stdlib.h>
 
 static int default_compare(void *a, void *b) {
   return bstrcmp((bstring)a, (bstring)b);
@@ -29,6 +30,10 @@ static uint32_t default_hash(void *a) {
   return hash;
 }
 
+/**
+ * creates a hashmap with `compare` and `hash` functions.
+ * `compare` and `hash` get a default implementation if input is NULL
+ */
 Hashmap *Hashmap_create(Hashmap_compare compare, Hashmap_hash hash) {
   Hashmap *map = calloc(1, sizeof(Hashmap));
   check_mem(map);
@@ -36,8 +41,8 @@ Hashmap *Hashmap_create(Hashmap_compare compare, Hashmap_hash hash) {
   map->compare = compare == NULL ? default_compare : compare;
   map->hash = hash == NULL ? default_hash : hash;
   map->buckets = DArray_create(sizeof(DArray *), DEFAULT_NUMBER_OF_BUCKETS);
-  map->buckets->end = map->buckets->max; // fake expanding the array to max size
   check_mem(map->buckets);
+  map->buckets->end = map->buckets->max; // fake expanding the array to max size
 
   return map;
 error:
@@ -80,6 +85,7 @@ error:
 
 static inline DArray *Hashmap_find_bucket(Hashmap *map, void *key, int create,
                                           uint32_t *hash_out) {
+  check(map != NULL, "Invalid map given");
   uint32_t hash = map->hash(key);
   int bucket_n = hash % DEFAULT_NUMBER_OF_BUCKETS;
   check(bucket_n >= 0, "Invalid bucket found: %d", bucket_n);
