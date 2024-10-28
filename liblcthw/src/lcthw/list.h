@@ -28,6 +28,7 @@ ListNode *ListNode_create(ListNode *next, ListNode *prev, void* value);
 #define List_size(A) ((A)->size)
 #define List_head(A) ((A)->head != NULL ? (A)->head->value : NULL)
 #define List_tail(A) ((A)->tail != NULL ? (A)->tail->value : NULL)
+#define List_first(A) ((A)->head != NULL ? (A)->head->value : NULL)
 
 void List_pushRight(List *list, void *value);
 void *List_popRight(List *list);

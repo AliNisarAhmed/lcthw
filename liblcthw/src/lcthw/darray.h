@@ -13,6 +13,7 @@ typedef struct DArray {
   void **contents;
 } DArray;
 
+DArray *DArray_create();
 DArray *DArray_create(size_t element_size, size_t initial_max);
 
 void DArray_destroy(DArray *array);
