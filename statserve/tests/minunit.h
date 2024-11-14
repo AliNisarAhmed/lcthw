@@ -1,8 +1,8 @@
-// #undef NDEBUG
+#undef NDEBUG
 #ifndef _minunit_h
 #define _minunit_h
 
-#include "../src/lcthw/dbg.h"
+#include "dbg.h"
 #include <stdio.h>
 #include <stdlib.h>
 
