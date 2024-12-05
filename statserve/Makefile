@@ -1,6 +1,6 @@
-CFLAGS=-g -O2 -Wall -Wextra -Isrc -I/usr/include -rdynamic -DBDEBUG $(OPTFLAGS)
-LIBS=-ldl -llcthw $(OPTLIBS)
-LDFLAGS=-L/usr/include/liblcthw -llcthw
+CFLAGS=-g -O2 -Wall -Wextra -Isrc -lm /usr/include/liblcthw/liblcthw.a -rdynamic -DBDEBUG $(OPTFLAGS)
+LIBS=-ldl -lm $(OPTLIBS)
+LDFLAGS=-llcthw -lm /usr/include/liblcthw/liblcthw.a
 PREFIX?=/usr/include
 
 SOURCES=$(wildcard src/**/*.c src/*.c)
@@ -13,7 +13,7 @@ TARGET=build/libstatserve.a
 SO_TARGET=$(patsubst %.a,%.so,$(TARGET))
 
 # The Target build 
-all: $(TARGET) tests bin/statserve
+all: $(TARGET) bin/statserve
 
 dev: CFLAGS=-g -Wall -Isrc -Wall -Wextra $(OPTFLAGS)
 dev: all 
@@ -21,6 +21,7 @@ dev: all
 so: $(SO_TARGET)
 
 bin/statserve: $(TARGET)
+	$(CC) $(CFLAGS) -o ./bin/statserve ./bin/statserve.c ./build/libstatserve.a /usr/include/liblcthw/liblcthw.a -lm
 
 $(TESTS): $(TARGET) 
 

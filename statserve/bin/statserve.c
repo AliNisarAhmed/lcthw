@@ -1,6 +1,5 @@
 #include "../src/statserve.h"
 #include <liblcthw/dbg.h>
-#include <stdio.h>
 #include <stdlib.h>
 
 int main(int argc, char *argv[]) {
